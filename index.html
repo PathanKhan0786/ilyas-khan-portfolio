@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -22,7 +22,8 @@ body{
   overflow-x:hidden;
   background:
   radial-gradient(circle at 78% 12%,rgba(76,150,255,.10),transparent 28%),
-  radial-gradient(circle at 12% 48%,rgba(157,53,255,.08),transparent 24%),var(--black);
+  radial-gradient(circle at 12% 48%,rgba(157,53,255,.08),transparent 24%),
+  var(--black);
   color:var(--white);
   font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
   line-height:1.65
@@ -47,6 +48,7 @@ button,input,textarea{font:inherit}
 button{cursor:pointer}
 .container{width:min(var(--max),calc(100% - 40px));margin:auto}
 .gold{color:var(--purple2)}
+
 .eyebrow{
   display:inline-flex;
   align-items:center;
@@ -77,63 +79,7 @@ button{cursor:pointer}
   font-size:1.02rem
 }
 
-/* LOADING */
-#loader{
-  position:fixed;
-  inset:0;
-  z-index:9999;
-  display:grid;
-  place-items:center;
-  background:#03030b;
-  transition:opacity .8s ease,visibility .8s ease
-}
-#loader.hide{
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none
-}
-.loader-inner{text-align:center}
-.loader-logo{
-  position:relative;
-  display:grid;
-  place-items:center;
-  width:108px;
-  height:108px;
-  margin:auto auto 22px;
-  border:1px solid rgba(157,53,255,.75);
-  border-radius:50%;
-  color:var(--purple2);
-  font-size:2.1rem;
-  font-weight:900;
-  letter-spacing:-.08em;
-  box-shadow:
-  0 0 35px rgba(157,53,255,.22),
-  inset 0 0 25px rgba(76,150,255,.10)
-}
-.loader-logo:before,.loader-logo:after{
-  content:"";
-  position:absolute;
-  inset:-9px;
-  border:1px solid transparent;
-  border-top-color:var(--purple);
-  border-radius:50%;
-  animation:spin 1.5s linear infinite
-}
-.loader-logo:after{
-  inset:-16px;
-  border-top-color:rgba(76,150,255,.45);
-  border-right-color:rgba(157,53,255,.25);
-  animation-duration:2.2s;
-  animation-direction:reverse
-}
-.loader-text{
-  color:#8f8ba0;
-  font-size:.68rem;
-  font-weight:800;
-  letter-spacing:.28em
-}
-@keyframes spin{to{transform:rotate(360deg)}}
-
+/* HEADER */
 .site-header{
   position:fixed;
   top:0;
@@ -210,6 +156,8 @@ button{cursor:pointer}
   box-shadow:0 8px 28px rgba(124,49,255,.18);
   outline:none
 }
+
+/* MENU */
 .menu-overlay{
   position:fixed;
   inset:0;
@@ -310,6 +258,8 @@ body.menu-open .side-menu{
   color:#76738a;
   font-size:.78rem
 }
+
+/* BUTTONS */
 .button-row{
   display:flex;
   flex-wrap:wrap;
@@ -337,7 +287,12 @@ body.menu-open .side-menu{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(110deg,transparent 20%,rgba(255,255,255,.18),transparent 80%);
+  background:linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(255,255,255,.18),
+    transparent 80%
+  );
   transform:translateX(-120%);
   transition:.55s
 }
@@ -354,6 +309,7 @@ body.menu-open .side-menu{
   color:#fff
 }
 
+/* HERO */
 .hero{
   min-height:100svh;
   display:flex;
@@ -393,8 +349,8 @@ body.menu-open .side-menu{
   border:1px solid rgba(157,53,255,.48);
   border-radius:36px;
   background:
-  radial-gradient(circle at 50% 42%,rgba(45,130,255,.17),transparent 40%),
-  linear-gradient(145deg,rgba(255,255,255,.045),rgba(0,0,0,.4));
+    radial-gradient(circle at 50% 42%,rgba(45,130,255,.17),transparent 40%),
+    linear-gradient(145deg,rgba(255,255,255,.045),rgba(0,0,0,.4));
   box-shadow:var(--shadow),inset 0 0 70px rgba(157,53,255,.045);
   transform-style:preserve-3d;
   animation:floatCard 5.5s ease-in-out infinite;
@@ -408,8 +364,8 @@ body.menu-open .side-menu{
   border:1px solid rgba(157,53,255,.5);
   border-radius:50%;
   box-shadow:
-  0 0 60px rgba(76,150,255,.18),
-  inset 0 0 30px rgba(157,53,255,.08)
+    0 0 60px rgba(76,150,255,.18),
+    inset 0 0 30px rgba(157,53,255,.08)
 }
 .hero-visual:after{
   content:"";
@@ -437,14 +393,17 @@ body.menu-open .side-menu{
   font-weight:800;
   letter-spacing:.25em
 }
+@keyframes spin{
+  to{transform:rotate(360deg)}
+}
 @keyframes floatCard{
   0%,100%{transform:translateY(0) rotateX(0) rotateY(0)}
   50%{transform:translateY(-11px) rotateX(1deg) rotateY(-1deg)}
 }
 
-.section{
-  padding:110px 0
-}
+/* SECTIONS */
+.section{padding:110px 0}
+
 .about-grid{
   display:grid;
   grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);
@@ -466,7 +425,11 @@ body.menu-open .side-menu{
   padding:26px;
   border:1px solid var(--line);
   border-radius:var(--radius);
-  background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.012));
+  background:linear-gradient(
+    145deg,
+    rgba(255,255,255,.035),
+    rgba(255,255,255,.012)
+  );
   box-shadow:inset 0 0 25px rgba(157,53,255,.025)
 }
 .stat strong{
@@ -488,7 +451,11 @@ body.menu-open .side-menu{
   place-items:center;
   border:1px solid rgba(157,53,255,.18);
   border-radius:28px;
-  background:radial-gradient(circle,rgba(45,130,255,.08),transparent 58%)
+  background:radial-gradient(
+    circle,
+    rgba(45,130,255,.08),
+    transparent 58%
+  )
 }
 .orbit-core{
   position:relative;
@@ -514,6 +481,7 @@ body.menu-open .side-menu{
 }
 .orbit-core:after{transform:rotate(-28deg)}
 
+/* SERVICES */
 .services-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -524,7 +492,11 @@ body.menu-open .side-menu{
   overflow:hidden;
   border:1px solid rgba(157,53,255,.18);
   border-radius:var(--radius);
-  background:linear-gradient(145deg,rgba(24,17,49,.9),rgba(7,7,18,.88));
+  background:linear-gradient(
+    145deg,
+    rgba(24,17,49,.9),
+    rgba(7,7,18,.88)
+  );
   box-shadow:0 15px 45px rgba(0,0,0,.18);
   transition:.35s
 }
@@ -548,8 +520,8 @@ body.menu-open .side-menu{
   transform:translateY(-8px);
   border-color:rgba(157,53,255,.7);
   box-shadow:
-  0 25px 60px rgba(0,0,0,.36),
-  0 0 30px rgba(76,150,255,.10)
+    0 25px 60px rgba(0,0,0,.36),
+    0 0 30px rgba(76,150,255,.10)
 }
 .service-card:hover:before,.project-card:hover:before{
   transform:scale(1.7)
@@ -577,6 +549,7 @@ body.menu-open .side-menu{
   font-size:.91rem
 }
 
+/* PROJECTS */
 .projects-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -607,12 +580,16 @@ body.menu-open .side-menu{
   border:1px solid rgba(76,150,255,.16);
   border-radius:16px;
   background:
-  linear-gradient(135deg,rgba(157,53,255,.09),transparent 48%),
-  repeating-linear-gradient(
-    90deg,
-    rgba(255,255,255,.025) 0 1px,
-    transparent 1px 34px
-  );
+    linear-gradient(
+      135deg,
+      rgba(157,53,255,.09),
+      transparent 48%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,.025) 0 1px,
+      transparent 1px 34px
+    );
   overflow:hidden
 }
 .project-art:before{
@@ -634,10 +611,16 @@ body.menu-open .side-menu{
   width:54%;
   height:5px;
   border-radius:10px;
-  background:linear-gradient(90deg,transparent,var(--blue),transparent);
+  background:linear-gradient(
+    90deg,
+    transparent,
+    var(--blue),
+    transparent
+  );
   box-shadow:0 0 15px rgba(45,130,255,.2)
 }
 
+/* CONTACT */
 .contact-section{padding-bottom:125px}
 .contact-wrap{
   display:grid;
@@ -653,7 +636,11 @@ body.menu-open .side-menu{
   border-radius:23px
 }
 .contact-info{
-  background:radial-gradient(circle at 15% 20%,rgba(45,130,255,.09),transparent 42%)
+  background:radial-gradient(
+    circle at 15% 20%,
+    rgba(45,130,255,.09),
+    transparent 42%
+  )
 }
 .contact-info h3{
   font-size:clamp(1.8rem,4vw,2.7rem);
@@ -678,7 +665,11 @@ body.menu-open .side-menu{
   margin-bottom:4px
 }
 .contact-form{
-  background:linear-gradient(145deg,rgba(20,15,40,.8),rgba(6,6,16,.75))
+  background:linear-gradient(
+    145deg,
+    rgba(20,15,40,.8),
+    rgba(6,6,16,.75)
+  )
 }
 .field{margin-bottom:15px}
 .field label{
@@ -705,10 +696,11 @@ body.menu-open .side-menu{
 .field input:focus,.field textarea:focus{
   border-color:var(--purple);
   box-shadow:
-  0 0 0 3px rgba(157,53,255,.10),
-  0 0 20px rgba(76,150,255,.06)
+    0 0 0 3px rgba(157,53,255,.10),
+    0 0 20px rgba(76,150,255,.06)
 }
 
+/* FOOTER */
 footer{
   padding:45px 0;
   border-top:1px solid rgba(157,53,255,.18);
@@ -730,6 +722,7 @@ footer{
 }
 .footer-links a:hover{color:var(--purple2)}
 
+/* REVEAL */
 .reveal{
   opacity:0;
   transform:translateY(28px);
@@ -750,6 +743,7 @@ footer{
     grid-template-columns:repeat(2,1fr)
   }
 }
+
 @media(max-width:600px){
   .container{
     width:min(var(--max),calc(100% - 28px))
@@ -787,12 +781,7 @@ footer{
 
 <body>
 
-<div id="loader">
-  <div class="loader-inner">
-    <div class="loader-logo">IT</div>
-    <div class="loader-text">PREMIUM WEB EXPERIENCE</div>
-  </div>
-</div>
+<!-- LOADING SCREEN REMOVED -->
 
 <div class="menu-overlay" id="menuOverlay"></div>
 
@@ -912,4 +901,47 @@ footer{
         </div>
 
         <div class="button-row">
-          <a class="btn" href="#contact">Let's Work Together ↗
+          <a class="btn" href="#contact">Let's Work Together ↗</a>
+        </div>
+
+      </div>
+
+      <div class="about-orbit reveal">
+        <div class="orbit-core">IT</div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <div class="eyebrow">SERVICES</div>
+
+      <h2>
+        What I
+        <span class="gold">create.</span>
+      </h2>
+    </div>
+
+    <div class="services-grid">
+
+      <article class="service-card reveal">
+        <div class="service-icon">🌐</div>
+        <h3>Business Websites</h3>
+        <p>
+          Professional websites for companies, services, startups and
+          local businesses.
+        </p>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-icon">🎨</div>
+        <h3>UI / Web Design</h3>
+        <p>
+          Premium layouts, elegant typography and carefully designed
+          user experiences.
+      
