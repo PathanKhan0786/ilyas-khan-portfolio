@@ -1332,31 +1332,37 @@ document.addEventListener("DOMContentLoaded",function(){
 
   }
 
-  if(form){
+ if(form){
 
-    form.addEventListener("submit",function(e){
+  form.addEventListener("submit",function(e){
 
-      e.preventDefault();
+    e.preventDefault();
 
-      const button=form.querySelector("button");
-      const original=button.textContent;
+    const name=document.getElementById("name").value.trim();
+    const email=document.getElementById("email").value.trim();
+    const message=document.getElementById("message").value.trim();
 
-      button.textContent="Message Ready ✓";
-      button.disabled=true;
+    const whatsappNumber="923325576755";
 
-      setTimeout(()=>{
+    const text =
+      "Hello ILYAS KHAN\n\n" +
+      "Name: " + name + "\n" +
+      "Email: " + email + "\n" +
+      "Message: " + message;
 
-        button.textContent=original;
-        button.disabled=false;
-        form.reset();
+    const whatsappURL =
+      "https://wa.me/" +
+      whatsappNumber +
+      "?text=" +
+      encodeURIComponent(text);
 
-      },1800);
+    window.open(whatsappURL,"_blank");
 
-    });
+  });
 
-  }
+}
 
-  year.textContent=new Date().getFullYear();
+year.textContent=new Date().getFullYear();
 
 });
 </script>
