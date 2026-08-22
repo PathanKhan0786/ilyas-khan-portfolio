@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ILYAS KHAN — Professional Web Developer & Web Designer">
+<meta name="theme-color" content="#03030b">
+<title>ILYAS KHAN | Web Developer & Designer</title>
+<style>
+:root{
+  --black:#03030b;--black2:#070719;--panel:rgba(12,10,28,.78);
+  --purple:#9d35ff;--purple2:#bd66ff;--violet:#a45aff;
+  --blue:#2d82ff;--blue2:#4c96ff;--white:#f6f4ff;
+  --muted:#aaa5b9;--line:rgba(166,101,255,.22);
+  --shadow:0 22px 60px rgba(0,0,0,.5);--radius:22px;--max:1180px
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{min-height:100vh;overflow-x:hidden;background:
+radial-gradient(circle at 78% 12%,rgba(76,150,255,.10),transparent 28%),
+radial-gradient(circle at 12% 48%,rgba(157,53,255,.08),transparent 24%),var(--black);
+color:var(--white);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.65}
+body.menu-open{overflow:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.13;background-image:
+linear-gradient(rgba(123,61,255,.14) 1px,transparent 1px),
+linear-gradient(90deg,rgba(76,150,255,.10) 1px,transparent 1px);
+background-size:55px 55px;mask-image:linear-gradient(to bottom,black,transparent 88%);z-index:-1}
+::selection{background:var(--purple);color:#fff}
+a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}button{cursor:pointer}
+.container{width:min(var(--max),calc(100% - 40px));margin:auto}
+.gold{color:var(--purple2)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:15px;color:var(--purple2);font-size:.75rem;font-weight:800;letter-spacing:.2em}
+.eyebrow:before{content:"";width:30px;height:1px;background:var(--purple);box-shadow:0 0 12px rgba(157,53,255,.7)}
+.section-heading{max-width:760px;margin-bottom:50px}
+.section-heading h2{font-size:clamp(2.2rem,5vw,4rem);line-height:1.08;letter-spacing:-.04em}
+.section-heading p{max-width:650px;margin-top:18px;color:var(--muted);font-size:1.02rem}
+#loader{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#03030b;transition:opacity .8s ease,visibility .8s ease}
+#loader.hide{opacity:0;visibility:hidden;pointer-events:none}
+.loader-inner{text-align:center}.loader-logo{position:relative;display:grid;place-items:center;width:108px;height:108px;margin:auto auto 22px;border:1px solid rgba(157,53,255,.75);border-radius:50%;color:var(--purple2);font-size:2.1rem;font-weight:900;letter-spacing:-.08em;box-shadow:0 0 35px rgba(157,53,255,.22),inset 0 0 25px rgba(76,150,255,.10)}
+.loader-logo:before,.loader-logo:after{content:"";position:absolute;inset:-9px;border:1px solid transparent;border-top-color:var(--purple);border-radius:50%;animation:spin 1.5s linear infinite}
+.loader-logo:after{inset:-16px;border-top-color:rgba(76,150,255,.45);border-right-color:rgba(157,53,255,.25);animation-duration:2.2s;animation-direction:reverse}
+.loader-text{color:#8f8ba0;font-size:.68rem;font-weight:800;letter-spacing:.28em}
+@keyframes spin{to{transform:rotate(360deg)}}
+.site-header{position:fixed;top:0;left:0;z-index:1000;width:100%;padding:16px 0;background:rgba(3,3,11,.72);border-bottom:1px solid rgba(166,101,255,.14);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:inline-flex;align-items:center;gap:12px;min-width:0}.brand-mark{display:grid;flex:0 0 auto;place-items:center;width:42px;height:42px;border:1px solid rgba(157,53,255,.7);border-radius:12px;color:var(--purple2);font-size:.92rem;font-weight:900;letter-spacing:-.08em;background:linear-gradient(145deg,rgba(157,53,255,.15),rgba(45,130,255,.08));box-shadow:inset 0 0 18px rgba(157,53,255,.10),0 0 20px rgba(45,130,255,.08)}
+.brand-name{font-size:.98rem;font-weight:800;letter-spacing:-.02em;white-space:nowrap}.brand-sub{display:block;margin-top:-2px;color:#85829a;font-size:.58rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
+.menu-trigger{display:grid;place-items:center;width:46px;height:46px;border:1px solid rgba(166,101,255,.3);border-radius:13px;background:rgba(255,255,255,.025);color:var(--purple2);font-size:1.7rem;line-height:1;transition:.3s}
+.menu-trigger:hover,.menu-trigger:focus-visible{transform:translateY(-2px);border-color:var(--purple);background:rgba(157,53,255,.08);box-shadow:0 8px 28px rgba(124,49,255,.18);outline:none}
+.menu-overlay{position:fixed;inset:0;z-index:1100;background:rgba(0,0,0,.68);opacity:0;visibility:hidden;transition:.35s;backdrop-filter:blur(3px)}
+.side-menu{position:fixed;top:0;right:0;z-index:1200;display:flex;flex-direction:column;width:min(390px,88vw);height:100dvh;padding:28px;background:linear-gradient(160deg,rgba(20,16,45,.97),rgba(3,3,11,.99));border-left:1px solid rgba(157,53,255,.4);box-shadow:-30px 0 80px rgba(0,0,0,.6);transform:translateX(105%);transition:transform .48s cubic-bezier(.2,.8,.2,1)}
+body.menu-open .menu-overlay{opacity:1;visibility:visible}body.menu-open .side-menu{transform:translateX(0)}
+.side-menu-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:65px}.side-menu-label{color:var(--purple2);font-size:.72rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
+.menu-close{width:42px;height:42px;border:1px solid var(--line);border-radius:12px;background:transparent;color:var(--white);font-size:1.4rem;transition:.25s}
+.menu-close:hover,.menu-close:focus-visible{color:var(--purple2);border-color:var(--purple);outline:none}
+.side-nav{display:grid;gap:7px}.side-nav a{position:relative;padding:16px 14px;border-radius:13px;color:#d0cde0;font-size:1.2rem;font-weight:700;transition:.25s}
+.side-nav a:after{content:"→";position:absolute;right:16px;color:var(--blue2);opacity:0;transform:translateX(-8px);transition:.25s}
+.side-nav a:hover,.side-nav a:focus-visible{color:var(--purple2);background:rgba(157,53,255,.08);transform:translateX(5px);outline:none}
+.side-nav a:hover:after,.side-nav a:focus-visible:after{opacity:1;transform:translateX(0)}
+.menu-footer{margin-top:auto;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);color:#76738a;font-size:.78rem}
+.button-row{display:flex;flex-wrap:wrap;gap:13px;margin-top:32px}.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;overflow:hidden;border:1px solid var(--purple);border-radius:12px;color:var(--purple2);background:rgba(157,53,255,.035);font-size:.9rem;font-weight:800;letter-spacing:.01em;transition:.3s}
+.btn:before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 20%,rgba(255,255,255,.18),transparent 80%);transform:translateX(-120%);transition:.55s}.btn:hover:before{transform:translateX(120%)}
+.btn:hover,.btn:focus-visible{transform:translateY(-3px);background:linear-gradient(100deg,var(--purple),var(--blue));color:#fff;box-shadow:0 12px 30px rgba(124,49,255,.25);outline:none}.btn-solid{background:linear-gradient(100deg,var(--purple),var(--blue));color:#fff}
+.hero{min-height:100svh;display:flex;align-items:center;padding:145px 0 90px}.hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr);align-items:center;gap:clamp(50px,8vw,110px)}
+.hero-copy h1{max-width:800px;font-size:clamp(3.2rem,7vw,6.8rem);line-height:.95;letter-spacing:-.065em}.hero-copy h1 .gold{display:block}
+.hero-copy p{max-width:650px;margin-top:27px;color:var(--muted);font-size:clamp(1rem,1.5vw,1.15rem)}
+.hero-visual-wrap{display:grid;place-items:center;perspective:1000px}.hero-visual{position:relative;width:min(390px,82vw);aspect-ratio:1;display:grid;place-items:center;border:1px solid rgba(157,53,255,.48);border-radius:36px;background:radial-gradient(circle at 50% 42%,rgba(45,130,255,.17),transparent 40%),linear-gradient(145deg,rgba(255,255,255,.045),rgba(0,0,0,.4));box-shadow:var(--shadow),inset 0 0 70px rgba(157,53,255,.045);transform-style:preserve-3d;animation:floatCard 5.5s ease-in-out infinite;transition:transform .2s,border-color .3s}
+.hero-visual:before{content:"";position:absolute;width:65%;aspect-ratio:1;border:1px solid rgba(157,53,255,.5);border-radius:50%;box-shadow:0 0 60px rgba(76,150,255,.18),inset 0 0 30px rgba(157,53,255,.08)}
+.hero-visual:after{content:"";position:absolute;inset:14%;border:1px dashed rgba(76,150,255,.18);border-radius:50%;animation:spin 20s linear infinite}
+.hero-initials{position:relative;z-index:2;color:var(--purple2);font-size:clamp(4.8rem,12vw,8.5rem);font-weight:950;letter-spacing:-.11em;text-shadow:0 0 35px rgba(157,53,255,.35)}
+.visual-caption{position:absolute;bottom:28px;z-index:3;color:#8c889e;font-size:.63rem;font-weight:800;letter-spacing:.25em}
+@keyframes floatCard{0%,100%{transform:translateY(0) rotateX(0) rotateY(0)}50%{transform:translateY(-11px) rotateX(1deg) rotateY(-1deg)}}
+.section{padding:110px 0}.about-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:65px;align-items:start}
+.about-copy p{color:var(--muted);font-size:1.03rem;margin-bottom:18px}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-top:34px}
+.stat{padding:26px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.012));box-shadow:inset 0 0 25px rgba(157,53,255,.025)}
+.stat strong{display:block;color:var(--purple2);font-size:2.1rem;line-height:1}.stat span{display:block;margin-top:9px;color:#9995aa;font-size:.82rem;font-weight:700}
+.about-orbit{min-height:330px;display:grid;place-items:center;border:1px solid rgba(157,53,255,.18);border-radius:28px;background:radial-gradient(circle,rgba(45,130,255,.08),transparent 58%)}
+.orbit-core{position:relative;display:grid;place-items:center;width:160px;height:160px;border:1px solid rgba(157,53,255,.55);border-radius:50%;color:var(--purple2);font-size:2.2rem;font-weight:900;box-shadow:0 0 50px rgba(76,150,255,.14)}
+.orbit-core:before,.orbit-core:after{content:"";position:absolute;width:235px;height:90px;border:1px solid rgba(76,150,255,.18);border-radius:50%;transform:rotate(28deg)}.orbit-core:after{transform:rotate(-28deg)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.service-card,.project-card{position:relative;overflow:hidden;border:1px solid rgba(157,53,255,.18);border-radius:var(--radius);background:linear-gradient(145deg,rgba(24,17,49,.9),rgba(7,7,18,.88));box-shadow:0 15px 45px rgba(0,0,0,.18);transition:.35s}
+.service-card{min-height:290px;padding:29px}.service-card:before,.project-card:before{content:"";position:absolute;width:170px;height:170px;top:-90px;right:-90px;border-radius:50%;background:rgba(157,53,255,.11);filter:blur(10px);transition:.45s}
+.service-card:hover,.project-card:hover{transform:translateY(-8px);border-color:rgba(157,53,255,.7);box-shadow:0 25px 60px rgba(0,0,0,.36),0 0 30px rgba(76,150,255,.10)}.service-card:hover:before,.project-card:hover:before{transform:scale(1.7)}
+.service-icon{display:grid;place-items:center;width:55px;height:55px;margin-bottom:25px;border:1px solid var(--line);border-radius:15px;background:rgba(157,53,255,.05);font-size:1.55rem}
+.service-card h3,.project-card h3{position:relative;font-size:1.22rem;letter-spacing:-.025em}.service-card p,.project-card p{position:relative;margin-top:11px;color:var(--muted);font-size:.91rem}
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.project-card{min-height:350px;display:flex;flex-direction:column;justify-content:flex-end;padding:29px}
+.project-number{position:absolute;top:26px;left:28px;color:rgba(157,53,255,.4);font-size:.72rem;font-weight:900;letter-spacing:.2em}
+.project-art{position:absolute;top:65px;left:28px;right:28px;height:130px;border:1px solid rgba(76,150,255,.16);border-radius:16px;background:linear-gradient(135deg,rgba(157,53,255,.09),transparent 48%),repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 34px);overflow:hidden}
+.project-art:before{content:"";position:absolute;left:15%;top:24%;width:70%;height:52%;border:1px solid rgba(157,53,255,.28);border-radius:10px;box-shadow:0 0 30px rgba(76,150,255,.08)}.project-art:after{content:"";position:absolute;left:23%;bottom:14%;width:54%;height:5px;border-radius:10px;background:linear-gradient(90deg,transparent,var(--blue),transparent);box-shadow:0 0 15px rgba(45,130,255,.2)}
+.contact-section{padding-bottom:125px}.contact-wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(360px,1.1fr);gap:22px;padding:18px;border:1px solid rgba(157,53,255,.16);border-radius:30px;background:rgba(255,255,255,.015)}
+.contact-info,.contact-form{padding:clamp(25px,4vw,45px);border-radius:23px}.contact-info{background:radial-gradient(circle at 15% 20%,rgba(45,130,255,.09),transparent 42%)}.contact-info h3{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.1;letter-spacing:-.04em}.contact-info p{max-width:500px;margin-top:18px;color:var(--muted)}
+.placeholder-contact{margin-top:28px;padding:17px;border:1px dashed rgba(157,53,255,.3);border-radius:14px;color:#aaa6b8}.placeholder-contact strong{display:block;color:var(--purple2);margin-bottom:4px}
+.contact-form{background:linear-gradient(145deg,rgba(20,15,40,.8),rgba(6,6,16,.75))}.field{margin-bottom:15px}.field label{display:block;margin-bottom:7px;color:#bdb8ca;font-size:.8rem;font-weight:700}.field input,.field textarea{width:100%;border:1px solid #28203d;border-radius:12px;background:#080813;color:var(--white);padding:13px 14px;outline:none;transition:.25s}.field textarea{min-height:130px;resize:vertical}.field input:focus,.field textarea:focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(157,53,255,.10),0 0 20px rgba(76,150,255,.06)}
+footer{padding:45px 0;border-top:1px solid rgba(157,53,255,.18);background:#020207;color:#888;font-size:12px}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-links{display:flex;gap:20px;flex-wrap:wrap}.footer-links a:hover{color:var(--purple2)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
+@media(max-width:850px){.hero-grid,.about-grid,.contact-wrap{grid-template-columns:1fr}.hero{padding-top:130px}.hero-visual-wrap{margin-top:20px}.services-grid,.projects-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.container{width:min(var(--max),calc(100% - 28px))}.section{padding:80px 0}.hero-copy h1{font-size:clamp(3rem,15vw,5rem)}.services-grid,.projects-grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.contact-wrap{padding:10px}.footer-inner{align-items:flex-start;flex-direction:column}.hero-visual{width:min(330px,88vw)}}
+.hello-line{display:block;font-size:.22em;letter-spacing:.16em;color:#b9b4c4;margin-bottom:14px;line-height:1.2;font-weight:800}\n</style>
+</head>
+<body>
+<div id="loader"><div class="loader-inner"><div class="loader-logo">IT</div><div class="loader-text">PREMIUM WEB EXPERIENCE</div></div></div>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+<aside class="side-menu" id="sideMenu" aria-label="Side navigation">
+  <div class="side-menu-top"><span class="side-menu-label">Navigation</span><button class="menu-close" id="menuClose" aria-label="Close menu">×</button></div>
+  <nav class="side-nav">
+    <a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+  </nav>
+  <div class="menu-footer">ILYAS KHAN<br>Web Developer &amp; Designer</div>
+</aside>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#home" class="brand"><span class="brand-mark">IT</span><span><span class="brand-name">ILYAS KHAN</span><span class="brand-sub">Web Developer &amp; Designer</span></span></a>
+    <button class="menu-trigger" id="menuOpen" aria-label="Open menu" aria-expanded="false">⋮</button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+<div class="container hero-grid">
+<div class="hero-copy reveal">
+<div class="eyebrow">WEB DEVELOPER • DESIGNER</div>
+<h1>Building the <span class="gold">Digital Future.</span></h1>
+<p>I create modern, responsive and premium websites with clean design, smooth animations and professional user experiences.</p>
+<div class="button-row"><a class="btn btn-solid" href="#projects">Explore My Work ↗</a><a class="btn" href="#contact">Hire Me</a></div>
+</div>
+<div class="hero-visual-wrap reveal"><div class="hero-visual" id="heroVisual"><div class="hero-initials">IT</div><div class="visual-caption">BUILD • CREATE • DEPLOY</div></div></div>
+</div>
+</section>
+
+<section class="section" id="about"><div class="container">
+<div class="section-heading reveal"><div class="eyebrow">ABOUT ME</div><h2>Creative mind. <span class="gold">Clean code.</span></h2><p>ILYAS KHAN is a professional Web Developer focused on creating websites that look premium, work smoothly and provide memorable user experiences.</p></div>
+<div class="about-grid"><div class="about-copy reveal"><p>I specialize in modern HTML, CSS and JavaScript websites, responsive layouts, professional animations and polished interfaces for businesses, brands and personal portfolios.</p><div class="stats"><div class="stat"><strong>100%</strong><span>Responsive Design</span></div><div class="stat"><strong>24/7</strong><span>Creative Mindset</span></div></div><div class="button-row"><a class="btn" href="#contact">Let's Work Together ↗</a></div></div><div class="about-orbit reveal"><div class="orbit-core">IT</div></div></div>
+</div></section>
+
+<section class="section" id="services"><div class="container">
+<div class="section-heading reveal"><div class="eyebrow">SERVICES</div><h2>What I <span class="gold">create.</span></h2></div>
+<div class="services-grid">
+<article class="service-card reveal"><div class="service-icon">🌐</div><h3>Business Websites</h3><p>Professional websites for companies, services, startups and local businesses.</p></article>
+<article class="service-card reveal"><div class="service-icon">🎨</div><h3>UI / Web Design</h3><p>Premium layouts, elegant typography and carefully designed user experiences.</p></article>
+<article class="service-card reveal"><div class="service-icon">⚡</div><h3>Professional Animations</h3><p>Smooth scroll animations, hover effects, transitions and modern micro-interactions.</p></article>
+<article class="service-card reveal"><div class="service-icon">📱</div><h3>Responsive Design</h3><p>Websites optimized to look excellent across phones, tablets and desktop computers.</p></article>
+<article class="service-card reveal"><div class="service-icon">💻</div><h3>HTML / CSS / JavaScript</h3><p>Clean front-end development using modern and lightweight technologies.</p></article>
+<article class="service-card reveal"><div class="service-icon">🚀</div><h3>Portfolio Websites</h3><p>Professional personal portfolio websites designed to showcase skills, projects and professional identity.</p></article>
+</div></div></section>
+
+<section class="section" id="projects"><div class="container">
+<div class="section-heading reveal"><div class="eyebrow">PROJECTS</div><h2>Selected <span class="gold">Work.</span></h2></div>
+<div class="projects-grid">
+<article class="project-card reveal"><span class="project-number">01</span><div class="project-art"></div><h3>Cleaning Service Website</h3><p>A responsive premium service website with strong calls-to-action and professional presentation.</p></article>
+<article class="project-card reveal"><span class="project-number">02</span><div class="project-art"></div><h3>Electrical Services Website</h3><p>A modern business website concept for electrical, solar and technical service solutions.</p></article>
+<article class="project-card reveal"><span class="project-number">03</span><div class="project-art"></div><h3>Academy Website</h3><p>A polished educational website concept for courses, teachers and student enquiries.</p></article>
+</div></div></section>
+
+<section class="section contact-section" id="contact"><div class="container">
+<div class="contact-wrap reveal">
+<div class="contact-info"><div class="eyebrow">LET'S WORK TOGETHER</div><h3>Let's create something <span class="gold">great.</span></h3><p>Have a project in mind? Send an enquiry and let's talk.</p><p>Tell me what you need and I can help turn your idea into a professional website.</p><div class="placeholder-contact"><strong>Contact</strong>YOUR NUMBER HERE</div><div class="button-row"><a class="btn btn-solid" href="tel:">☎ Call</a><a class="btn" href="#contact-form">WhatsApp</a></div></div>
+<form class="contact-form" id="contact-form"><div class="field"><label for="name">Your Name</label><input id="name" name="name" required></div><div class="field"><label for="phone">Phone / WhatsApp</label><input id="phone" name="phone" inputmode="tel" required></div><div class="field"><label for="message">Tell me about your project</label><textarea id="message" name="message" required></textarea></div><button class="btn btn-solid" type="submit">Send Enquiry ↗</button></form>
+</div></div></section>
+</main>
+
+<footer><div class="container footer-inner"><div><strong>ILYAS KHAN</strong><p>© 2026 ILYAS KHAN — Web Developer. Designed with precision.</p></div><div class="footer-links"><a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div></div></footer>
+
+<script>
+window.addEventListener("load",()=>setTimeout(()=>document.getElementById("loader").classList.add("hide"),850));
+const body=document.body,openBtn=document.getElementById("menuOpen"),closeBtn=document.getElementById("menuClose"),overlay=document.getElementById("menuOverlay");
+function openMenu(){body.classList.add("menu-open");openBtn.setAttribute("aria-expanded","true")}
+function closeMenu(){body.classList.remove("menu-open");openBtn.setAttribute("aria-expanded","false")}
+openBtn.addEventListener("click",openMenu);closeBtn.addEventListener("click",closeMenu);overlay.addEventListener("click",closeMenu);
+document.querySelectorAll(".side-nav a").forEach(a=>a.addEventListener("click",closeMenu));
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeMenu()});
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+document.getElementById("contact-form").addEventListener("submit",e=>{e.preventDefault();alert("Thank you. Your enquiry form is ready to connect with your preferred contact service.");});
+const visual=document.getElementById("heroVisual");
+if(visual&&matchMedia("(pointer:fine)").matches){
+visual.addEventListener("pointermove",e=>{const r=visual.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;visual.style.transform=`perspective(900px) rotateX(${(-y*5).toFixed(2)}deg) rotateY(${(x*5).toFixed(2)}deg) translateY(-5px)`});
+visual.addEventListener("pointerleave",()=>visual.style.transform="");
+}
+</script>
+</body>
+</html>
