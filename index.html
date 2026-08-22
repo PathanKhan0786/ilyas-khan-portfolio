@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -94,7 +94,8 @@ footer{padding:45px 0;border-top:1px solid rgba(157,53,255,.18);background:#0202
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
 @media(max-width:850px){.hero-grid,.about-grid,.contact-wrap{grid-template-columns:1fr}.hero{padding-top:130px}.hero-visual-wrap{margin-top:20px}.services-grid,.projects-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.container{width:min(var(--max),calc(100% - 28px))}.section{padding:80px 0}.hero-copy h1{font-size:clamp(3rem,15vw,5rem)}.services-grid,.projects-grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.contact-wrap{padding:10px}.footer-inner{align-items:flex-start;flex-direction:column}.hero-visual{width:min(330px,88vw)}}
-.hello-line{display:block;font-size:.22em;letter-spacing:.16em;color:#b9b4c4;margin-bottom:14px;line-height:1.2;font-weight:800}\n</style>
+.hello-line{display:block;font-size:.22em;letter-spacing:.16em;color:#b9b4c4;margin-bottom:14px;line-height:1.2;font-weight:800}
+</style>
 </head>
 <body>
 <div id="loader"><div class="loader-inner"><div class="loader-logo">IT</div><div class="loader-text">PREMIUM WEB EXPERIENCE</div></div></div>
@@ -116,7 +117,7 @@ footer{padding:45px 0;border-top:1px solid rgba(157,53,255,.18);background:#0202
 </header>
 
 <main>
-<section class="hero">
+<section class="hero" id="home">
 <div class="container hero-grid">
 <div class="hero-copy reveal">
 <div class="eyebrow">WEB DEVELOPER • DESIGNER</div>
@@ -149,34 +150,4 @@ footer{padding:45px 0;border-top:1px solid rgba(157,53,255,.18);background:#0202
 <div class="projects-grid">
 <article class="project-card reveal"><span class="project-number">01</span><div class="project-art"></div><h3>Cleaning Service Website</h3><p>A responsive premium service website with strong calls-to-action and professional presentation.</p></article>
 <article class="project-card reveal"><span class="project-number">02</span><div class="project-art"></div><h3>Electrical Services Website</h3><p>A modern business website concept for electrical, solar and technical service solutions.</p></article>
-<article class="project-card reveal"><span class="project-number">03</span><div class="project-art"></div><h3>Academy Website</h3><p>A polished educational website concept for courses, teachers and student enquiries.</p></article>
-</div></div></section>
-
-<section class="section contact-section" id="contact"><div class="container">
-<div class="contact-wrap reveal">
-<div class="contact-info"><div class="eyebrow">LET'S WORK TOGETHER</div><h3>Let's create something <span class="gold">great.</span></h3><p>Have a project in mind? Send an enquiry and let's talk.</p><p>Tell me what you need and I can help turn your idea into a professional website.</p><div class="placeholder-contact"><strong>Contact</strong>YOUR NUMBER HERE</div><div class="button-row"><a class="btn btn-solid" href="tel:">☎ Call</a><a class="btn" href="#contact-form">WhatsApp</a></div></div>
-<form class="contact-form" id="contact-form"><div class="field"><label for="name">Your Name</label><input id="name" name="name" required></div><div class="field"><label for="phone">Phone / WhatsApp</label><input id="phone" name="phone" inputmode="tel" required></div><div class="field"><label for="message">Tell me about your project</label><textarea id="message" name="message" required></textarea></div><button class="btn btn-solid" type="submit">Send Enquiry ↗</button></form>
-</div></div></section>
-</main>
-
-<footer><div class="container footer-inner"><div><strong>ILYAS KHAN</strong><p>© 2026 ILYAS KHAN — Web Developer. Designed with precision.</p></div><div class="footer-links"><a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div></div></footer>
-
-<script>
-window.addEventListener("load",()=>setTimeout(()=>document.getElementById("loader").classList.add("hide"),850));
-const body=document.body,openBtn=document.getElementById("menuOpen"),closeBtn=document.getElementById("menuClose"),overlay=document.getElementById("menuOverlay");
-function openMenu(){body.classList.add("menu-open");openBtn.setAttribute("aria-expanded","true")}
-function closeMenu(){body.classList.remove("menu-open");openBtn.setAttribute("aria-expanded","false")}
-openBtn.addEventListener("click",openMenu);closeBtn.addEventListener("click",closeMenu);overlay.addEventListener("click",closeMenu);
-document.querySelectorAll(".side-nav a").forEach(a=>a.addEventListener("click",closeMenu));
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closeMenu()});
-const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
-document.getElementById("contact-form").addEventListener("submit",e=>{e.preventDefault();alert("Thank you. Your enquiry form is ready to connect with your preferred contact service.");});
-const visual=document.getElementById("heroVisual");
-if(visual&&matchMedia("(pointer:fine)").matches){
-visual.addEventListener("pointermove",e=>{const r=visual.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;visual.style.transform=`perspective(900px) rotateX(${(-y*5).toFixed(2)}deg) rotateY(${(x*5).toFixed(2)}deg) translateY(-5px)`});
-visual.addEventListener("pointerleave",()=>visual.style.transform="");
-}
-</script>
-</body>
-</html>
+<article class="project-card reveal"><span class="project-number">03</span><div class="project-art"></div><h3>Academy Website</h3><p>A polished educa
